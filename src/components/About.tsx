@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Image from 'next/image'
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -11,43 +12,52 @@ export default function About() {
 
   return (
     <section id="about" className="py-20">
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.6 }}
-        className="container mx-auto"
-      >
-        <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
-        <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-700 dark:text-gray-300">
-          <p>
-            I'm a curious and engaged IT student currently in my second year of the Master of Science 
-            in Engineering program in Information Technology at Uppsala University. I have a strong 
-            passion for programming and systems development, and I love problem-solving and constantly 
-            learning new things.
-          </p>
+      <div className="container mx-auto px-6">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto"
+        >
+          <h2 className="text-3xl font-bold mb-12 text-center">About Me</h2>
           
-          <p>
-            What I enjoy most about programming is that it involves all aspects of problem-solving – 
-            from analyzing and understanding the problem to designing and building effective solutions. 
-            I love breaking down and exploring challenges, experimenting with different approaches, 
-            and really understanding how systems work.
-          </p>
-          
-          <p>
-            I enjoy both working in teams and independently, and I learn best when I get to build 
-            things and try out new technologies in practice. I naturally take initiative and 
-            responsibility, and I like structuring and driving things forward efficiently.
-          </p>
-          
-          <p>
-            Outside of studies, I read a lot – both courses and technical articles – and I love 
-            diving deep into topics like programming, productivity, and learning. I've played ice 
-            hockey most of my life, which taught me teamwork, discipline, and a constant drive 
-            to improve.
-          </p>
-        </div>
-      </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            {/* Profile Image */}
+            <div className="md:col-span-5">
+              <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-600 p-1">
+                <Image
+                  src="/images/hero_hello_world.jpg"
+                  alt="Adam Nielsen"
+                  width={400}
+                  height={400}
+                  className="rounded-xl object-cover"
+                />
+              </div>
+            </div>
+
+            {/* About Text */}
+            <div className="md:col-span-7 space-y-6">
+              <p className="text-lg text-gray-200">
+                Hey! I'm Adam, a passionate software developer with a focus on backend and fullstack development. 
+                Currently pursuing my studies in Information Technology at Uppsala University, I'm constantly exploring 
+                new technologies and pushing my boundaries in software development.
+              </p>
+              
+              <p className="text-lg text-gray-200">
+                With a strong foundation in various programming languages and technologies, I enjoy tackling 
+                complex problems and creating efficient, scalable solutions. My experience ranges from system-level 
+                programming to full-stack web development.
+              </p>
+
+              <p className="text-lg text-gray-200">
+                When I'm not coding, you can find me reading technical articles, exploring new technologies, 
+                or playing ice hockey - a sport that has taught me the value of teamwork and continuous improvement.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   )
 } 

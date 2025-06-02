@@ -1,53 +1,61 @@
 'use client';
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { UserCircleIcon } from '@heroicons/react/24/solid'
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center pt-20 pb-16">
-      <div className="container text-center">
+    <section className="relative min-h-screen w-full overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute top-0 left-0 right-0 bottom-0 w-full bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('/images/hero_hello_world.jpg')"
+        }}
+      />
+      
+      {/* Content */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="space-y-6"
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl w-full mx-auto px-6 text-center"
         >
-          {/* Profile Image */}
-          <div className="relative w-48 h-48 mx-auto mb-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full animate-pulse" 
-                 style={{ transform: 'scale(1.05)' }} />
-            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white bg-gray-100">
-              <UserCircleIcon className="w-full h-full text-gray-400" />
-            </div>
-          </div>
-
-          {/* Name and Title */}
-          <div className="space-y-4">
-            <h1 className="text-5xl sm:text-6xl font-bold">
-              Hi, I'm <span className="gradient-text">Adam Nielsen</span>
-            </h1>
-            <h2 className="text-2xl sm:text-3xl text-gray-600">
-              Backend/Fullstack Developer
-            </h2>
-          </div>
-
-          {/* Description */}
-          <p className="max-w-2xl mx-auto text-lg text-gray-600 leading-relaxed">
+          <h1 className="text-5xl sm:text-7xl font-bold text-white tracking-tight">
+            Hi, I'm <span className="text-indigo-400">Adam Nielsen</span>
+          </h1>
+          
+          <p className="text-xl sm:text-2xl text-gray-200 leading-relaxed mt-6">
             Passionate about building software that solves real problems, ranging from system level tools to
             full stack applications. Always eager to learn new technologies and turn ideas into code.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 pt-8">
-            <a href="#contact" className="primary-button">
-              Get In Touch
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            <a
+              href="#about"
+              className="inline-block mt-8 text-white"
+              aria-label="Scroll to about section"
+            >
+              <svg
+                className="w-10 h-10 animate-bounce"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
             </a>
-            <a href="#projects" className="secondary-button">
-              View My Work
-            </a>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

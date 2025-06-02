@@ -9,10 +9,10 @@ import Navbar from '@/components/Navbar'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gray-900">
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
-        <Hero />
+      <Hero />
+      <div className="container mx-auto px-6">
         <About />
         <Projects />
         <Skills />
