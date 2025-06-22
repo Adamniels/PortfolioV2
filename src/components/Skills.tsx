@@ -59,51 +59,28 @@ export default function Skills() {
   })
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-12 text-center">Skills</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center text-black uppercase tracking-wider">Skills</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {skillCategories.map((category, categoryIndex) => (
-              <motion.div
+              <div
                 key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
-                className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6"
+                className="bg-white rounded-lg shadow-md p-6 border border-gray-100"
               >
-                <h3 className="text-xl font-bold mb-4">{category.title}</h3>
-                <div className="space-y-4">
-                  {category.skills.map((skill) => (
-                    <div key={skill.name}>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-gray-700 dark:text-gray-300">{skill.name}</span>
-                        <span className="text-blue-600 dark:text-blue-400 text-sm">{skill.level}</span>
-                      </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div
-                          className="bg-blue-600 h-2 rounded-full"
-                          style={{
-                            width: skill.level === 'Advanced' ? '90%' :
-                                   skill.level === 'Intermediate' ? '70%' :
-                                   skill.level === 'Basic' ? '50%' :
-                                   skill.level === 'Native' ? '100%' :
-                                   skill.level === 'Fluent' ? '90%' : '0%'
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ))}
+                <h3 className="text-xl font-bold mb-4 text-black">{category.title}</h3>
+                <div className="space-y-2">
+                  <ul className="list-disc list-inside text-gray-700 text-left">
+                    {category.skills.map((skill) => (
+                      <li key={skill.name}>{skill.name}</li>
+                    ))}
+                  </ul>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

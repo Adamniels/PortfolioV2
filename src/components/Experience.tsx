@@ -25,43 +25,35 @@ export default function Experience() {
   })
 
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-12 text-center">Work Experience</h2>
-          <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center text-black uppercase tracking-wider">Work Experience</h2>
+          <div className="space-y-10">
             {experience.map((exp, index) => (
-              <motion.div
+              <div
                 key={exp.company}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6"
+                className="bg-white rounded-lg shadow-md p-6 border border-gray-100"
               >
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-xl font-bold">{exp.company}</h3>
-                    <p className="text-blue-600 dark:text-blue-400">{exp.position}</p>
+                    <h3 className="text-xl font-bold text-black">{exp.company}</h3>
+                    <p className="text-blue-600">{exp.position}</p>
                   </div>
-                  <span className="text-gray-600 dark:text-gray-400">{exp.period}</span>
+                  <span className="text-gray-500">{exp.period}</span>
                 </div>
                 <ul className="space-y-2">
                   {exp.description.map((item, i) => (
-                    <li key={i} className="text-gray-700 dark:text-gray-300 flex items-start">
+                    <li key={i} className="text-gray-700 flex items-start">
                       <span className="mr-2">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

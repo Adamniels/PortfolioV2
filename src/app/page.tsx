@@ -6,6 +6,7 @@ import Education from '@/components/Education'
 import Experience from '@/components/Experience'
 import Contact from '@/components/Contact'
 import Navbar from '@/components/Navbar'
+import Passion from '@/components/Passion'
 
 export default function Home() {
   return (
@@ -14,10 +15,11 @@ export default function Home() {
       <Hero />
       <div className="container mx-auto px-6">
         <About />
+        <Passion />
         <Projects />
         <Skills />
-        <Education />
         <Experience />
+        <Education />
         <Contact />
       </div>
     </main>

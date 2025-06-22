@@ -36,39 +36,31 @@ export default function Education() {
   })
 
   return (
-    <section id="education" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="education" className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-12 text-center">Education</h2>
-          <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center text-black uppercase tracking-wider">Education</h2>
+          <div className="space-y-10">
             {education.map((edu, index) => (
-              <motion.div
+              <div
                 key={edu.school}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6"
+                className="bg-white rounded-lg shadow-md p-6 border border-gray-100"
               >
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-xl font-bold">{edu.school}</h3>
-                    <p className="text-blue-600 dark:text-blue-400">{edu.degree}</p>
+                    <h3 className="text-xl font-bold text-black">{edu.school}</h3>
+                    <p className="text-blue-600">{edu.degree}</p>
                   </div>
-                  <span className="text-gray-600 dark:text-gray-400">{edu.period}</span>
+                  <span className="text-gray-500">{edu.period}</span>
                 </div>
                 {edu.courses.length > 0 && (
                   <div>
-                    <h4 className="font-semibold mb-2">Relevant Courses:</h4>
+                    <h4 className="font-semibold mb-2 text-gray-800">Relevant Courses:</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       {edu.courses.map((course) => (
                         <div
                           key={course}
-                          className="text-gray-700 dark:text-gray-300 text-sm"
+                          className="text-gray-700 text-sm"
                         >
                           • {course}
                         </div>
@@ -76,10 +68,10 @@ export default function Education() {
                     </div>
                   </div>
                 )}
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

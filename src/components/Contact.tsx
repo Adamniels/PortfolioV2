@@ -32,45 +32,29 @@ export default function Contact() {
   })
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
-        >
-          <h2 className="text-3xl font-bold mb-12 text-center">Get in Touch</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center text-black uppercase tracking-wider">Get in Touch</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {contactInfo.map((contact, index) => (
-              <motion.a
+              <a
                 key={contact.label}
                 href={contact.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="flex flex-col items-center p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
               >
-                <contact.icon className="w-8 h-8 text-blue-600 dark:text-blue-400 mb-4" />
-                <h3 className="text-lg font-semibold mb-2">{contact.label}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-center">{contact.value}</p>
-              </motion.a>
+                <contact.icon className="w-8 h-8 text-blue-600 mb-4" />
+                <h3 className="text-lg font-semibold mb-2 text-black">{contact.label}</h3>
+                <p className="text-gray-700 text-center">{contact.value}</p>
+              </a>
             ))}
           </div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-12 text-center text-gray-600 dark:text-gray-400"
-          >
+          <div className="mt-12 text-center text-gray-700 text-lg font-medium">
             <p>
-              I'm always interested in hearing about new opportunities and exciting projects.
-              Feel free to reach out!
+              I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out!
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )

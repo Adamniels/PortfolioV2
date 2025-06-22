@@ -31,47 +31,35 @@ export default function Projects() {
   })
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="projects" className="py-24 bg-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl font-bold mb-12 text-center">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-12 text-center text-black uppercase tracking-wider">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {projects.map((project, index) => (
-              <motion.div
+              <div
                 key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden"
+                className="bg-white rounded-lg shadow-md p-6 flex flex-col h-full border border-gray-100"
               >
-                <div className="p-6">
-                  <div className="text-sm text-blue-600 dark:text-blue-400 mb-2">
-                    {project.type}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                <div className="text-sm text-gray-500 mb-2 uppercase tracking-wide">
+                  {project.type}
                 </div>
-              </motion.div>
+                <h3 className="text-xl font-bold mb-3 text-black">{project.title}</h3>
+                <p className="text-gray-700 mb-4 flex-1">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium border border-gray-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
