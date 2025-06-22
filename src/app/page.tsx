@@ -13,13 +13,13 @@ export default function Home() {
     <main className="min-h-screen bg-gray-900">
       <Navbar />
       <Hero />
-      <div className="container mx-auto px-6">
+      <div>
         <About />
         <Passion />
         <Projects />
         <Skills />
-        <Experience />
         <Education />
+        <Experience />
         <Contact />
       </div>
     </main>

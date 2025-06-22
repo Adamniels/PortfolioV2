@@ -6,62 +6,25 @@ import { useInView } from 'react-intersection-observer'
 const skillCategories = [
   {
     title: 'Programming Languages',
-    skills: [
-      { name: 'C', level: 'Advanced' },
-      { name: 'Java', level: 'Advanced' },
-      { name: 'Python', level: 'Intermediate' },
-      { name: 'C++', level: 'Intermediate' },
-      { name: 'Go', level: 'Intermediate' },
-      { name: 'TypeScript/JavaScript', level: 'Intermediate' },
-      { name: 'MIPS Assembly', level: 'Basic' },
-    ]
+    skills: ['C', 'Java', 'Python', 'C++', 'Go', 'TypeScript/JavaScript', 'MIPS Assembly']
   },
   {
     title: 'Web & Fullstack',
-    skills: [
-      { name: 'HTML/CSS', level: 'Intermediate' },
-      { name: 'Vue', level: 'Intermediate' },
-      { name: 'REST APIs', level: 'Intermediate' },
-      { name: 'Database Design', level: 'Basic' },
-    ]
+    skills: ['HTML/CSS', 'Vue', 'REST APIs', 'Database Design']
   },
   {
     title: 'Tools & Environments',
-    skills: [
-      { name: 'Git', level: 'Advanced' },
-      { name: 'Testing Frameworks', level: 'Intermediate' },
-      { name: 'Terminal/CLI', level: 'Advanced' },
-      { name: 'Networking', level: 'Intermediate' },
-    ]
+    skills: ['Git', 'Testing Frameworks', 'Terminal/CLI', 'Networking']
   },
   {
     title: 'Soft Skills',
-    skills: [
-      { name: 'Problem Solving', level: 'Advanced' },
-      { name: 'Team Collaboration', level: 'Advanced' },
-      { name: 'Communication', level: 'Advanced' },
-      { name: 'Leadership', level: 'Advanced' },
-    ]
+    skills: ['Problem Solving', 'Team Collaboration', 'Communication', 'Leadership']
   },
   {
     title: 'Languages',
-    skills: [
-      { name: 'Swedish', level: 'Native' },
-      { name: 'English', level: 'Fluent' },
-    ]
+    skills: ['Swedish (Native)', 'English (Fluent)']
   }
 ]
-
-const getLevelColor = (level: string) => {
-  switch (level) {
-    case 'Advanced': return 'bg-green-100 text-green-800 border-green-200'
-    case 'Intermediate': return 'bg-blue-100 text-blue-800 border-blue-200'
-    case 'Basic': return 'bg-yellow-100 text-yellow-800 border-yellow-200'
-    case 'Native': return 'bg-purple-100 text-purple-800 border-purple-200'
-    case 'Fluent': return 'bg-indigo-100 text-indigo-800 border-indigo-200'
-    default: return 'bg-gray-100 text-gray-800 border-gray-200'
-  }
-}
 
 export default function Skills() {
   const [ref, inView] = useInView({
@@ -89,21 +52,18 @@ export default function Skills() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: categoryIndex * 0.1 }}
               >
-                <h3 className="text-xl font-bold mb-6 text-gray-900">{category.title}</h3>
-                <div className="space-y-3">
+                <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{category.title}</h3>
+                <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <motion.div 
-                      key={skill.name}
-                      className="flex justify-between items-center"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                    <motion.span
+                      key={skill}
+                      className="px-3 py-2 bg-gradient-to-r from-blue-50 to-purple-50 text-gray-700 rounded-full text-sm font-medium border border-blue-200 hover:from-blue-100 hover:to-purple-100 transition-all duration-300"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={inView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.6, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
                     >
-                      <span className="text-gray-700 font-medium">{skill.name}</span>
-                      <span className={`px-2 py-1 rounded-full text-xs font-semibold border ${getLevelColor(skill.level)}`}>
-                        {skill.level}
-                      </span>
-                    </motion.div>
+                      {skill}
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>

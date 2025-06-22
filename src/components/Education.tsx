@@ -64,18 +64,18 @@ export default function Education() {
                 </div>
                 {edu.courses.length > 0 && (
                   <div>
-                    <h4 className="font-semibold mb-4 text-gray-800 text-lg">Relevant Courses:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <h4 className="font-semibold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg">Relevant Courses:</h4>
+                    <div className="flex flex-wrap gap-2">
                       {edu.courses.map((course, i) => (
-                        <motion.div
+                        <motion.span
                           key={course}
-                          className="text-gray-700 bg-gradient-to-r from-blue-50 to-purple-50 px-3 py-2 rounded-lg border border-blue-100"
-                          initial={{ opacity: 0, scale: 0.9 }}
+                          className="px-3 py-2 bg-gradient-to-r from-blue-50 to-purple-50 text-gray-700 rounded-full text-sm font-medium border border-blue-200 hover:from-blue-100 hover:to-purple-100 transition-all duration-300"
+                          initial={{ opacity: 0, scale: 0.8 }}
                           animate={inView ? { opacity: 1, scale: 1 } : {}}
-                          transition={{ duration: 0.5, delay: (index * 0.2) + (i * 0.05) }}
+                          transition={{ duration: 0.6, delay: (index * 0.2) + (i * 0.05) }}
                         >
-                          • {course}
-                        </motion.div>
+                          {course}
+                        </motion.span>
                       ))}
                     </div>
                   </div>
