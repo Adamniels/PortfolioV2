@@ -17,9 +17,9 @@ export default function About() {
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
       </div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           ref={ref}
           className="max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 50 }}
@@ -27,9 +27,9 @@ export default function About() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-16 text-center">A Little Bit About Me</h2>
-          
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div 
+            <motion.div
               className="flex justify-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -38,7 +38,7 @@ export default function About() {
               <div className="relative">
                 <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-purple-200 shadow-2xl shadow-purple-200/50">
                   <Image
-                    src="/images/hero_hello_world.jpg"
+                    src="/images/profilbild.webp"
                     alt="Adam Nielsen"
                     width={256}
                     height={256}
@@ -48,8 +48,8 @@ export default function About() {
 
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="space-y-6 text-left"
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -64,7 +64,7 @@ export default function About() {
               <p className="text-lg text-gray-700 leading-relaxed">
                 When I'm not coding, you'll find me playing ice hockey, reading, or searching for the perfect cup of coffee.
               </p>
-              
+
               <div className="flex flex-wrap gap-4 mt-8">
                 <div className="bg-gradient-to-r from-purple-100 to-blue-100 px-4 py-2 rounded-full border border-purple-200">
                   <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-medium">🎓 Uppsala University</span>
