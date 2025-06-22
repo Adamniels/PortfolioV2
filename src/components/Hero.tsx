@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="relative min-h-screen w-full overflow-hidden">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="absolute inset-0 bg-[url('/images/hero_hello_world.jpg')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-[url('/images/hero_image2.webp')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
       </div>
       
@@ -59,7 +59,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <a href="#about" className="primary-button glow">
+              <a href="#projects" className="primary-button glow">
                 Discover My Work
               </a>
               <a href="#contact" className="secondary-button">
