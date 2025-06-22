@@ -32,30 +32,56 @@ export default function Contact() {
   })
 
   return (
-    <section id="contact" className="py-24 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center text-black uppercase tracking-wider">Get in Touch</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <section id="contact" className="py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          ref={ref}
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">Get in Touch</h2>
+          <p className="text-xl text-gray-300 mb-16 text-center max-w-2xl mx-auto">
+            I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out!
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {contactInfo.map((contact, index) => (
-              <a
+              <motion.a
                 key={contact.label}
                 href={contact.href}
-                className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow"
+                className="flex flex-col items-center p-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-white/20 transition-all duration-300 group"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
               >
-                <contact.icon className="w-8 h-8 text-blue-600 mb-4" />
-                <h3 className="text-lg font-semibold mb-2 text-black">{contact.label}</h3>
-                <p className="text-gray-700 text-center">{contact.value}</p>
-              </a>
+                <contact.icon className="w-12 h-12 text-blue-400 mb-6 group-hover:text-blue-300 transition-colors" />
+                <h3 className="text-xl font-semibold mb-3 text-white">{contact.label}</h3>
+                <p className="text-gray-300 text-center group-hover:text-white transition-colors">{contact.value}</p>
+              </motion.a>
             ))}
           </div>
-          <div className="mt-12 text-center text-gray-700 text-lg font-medium">
-            <p>
-              I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out!
-            </p>
-          </div>
-        </div>
+          
+          <motion.div 
+            className="mt-16 text-center"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <div className="inline-flex items-center space-x-2 text-gray-400">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span>Available for new opportunities</span>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
-} 
+}
